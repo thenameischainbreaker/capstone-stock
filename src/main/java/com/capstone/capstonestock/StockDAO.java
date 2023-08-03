@@ -10,4 +10,5 @@ public interface StockDAO {
 	public boolean addStock(int id, int add) throws SQLException;
 	public boolean subStock(int id, int sub) throws SQLException;
 	public Stock getStock(int id) throws SQLException;
+	
 }

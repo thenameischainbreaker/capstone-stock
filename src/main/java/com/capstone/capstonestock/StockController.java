@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/stock")
-@CrossOrigin(origins = "https://domainofchain.s3.us-east-2.amazonaws.com")
+@CrossOrigin(origins = {"https://domainofchain.s3.us-east-2.amazonaws.com","http://localhost:4200/"})
 public class StockController {
 	@Autowired
 	StockDAO repo;

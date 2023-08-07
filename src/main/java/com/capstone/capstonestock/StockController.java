@@ -74,7 +74,7 @@ public class StockController {
 			if(repo.addStock(stock.getP_id(), stock.getS_quantity()))
 				return "\"Stock Added\"";
 			else
-				return "Stock Not Added";
+				return "\"Stock Not Added\"";
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

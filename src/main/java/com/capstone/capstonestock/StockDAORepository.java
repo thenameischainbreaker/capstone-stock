@@ -45,13 +45,19 @@ public class StockDAORepository implements StockDAO {
 			query = "update stock set s_quantity = ? where p_id = " + id;
 			ps = con.prepareStatement(query);
 			ps.setInt(1, original + add);
-			if(ps.executeUpdate()>0)
+			if(ps.executeUpdate()>0) {
+				con.close();
 				return true;
-			else
+			}
+			else {
+				con.close();
 				return false;
+			}
 		}
-		else
+		else {
+			con.close();
 			return false;
+		}
 	}
 	
 	@Override
@@ -71,13 +77,19 @@ public class StockDAORepository implements StockDAO {
 			query = "update stock set s_quantity = ? where p_id = " + id;
 			ps = con.prepareStatement(query);
 			ps.setInt(1, original - sub);
-			if(ps.executeUpdate()>0)
+			if(ps.executeUpdate()>0) {
+				con.close();
 				return true;
-			else
+			}
+			else {
+				con.close();
 				return false;
+			}
 		}
-		else
+		else {
+			con.close();
 			return false;
+		}
 	}
 
 	@Override
@@ -93,6 +105,7 @@ public class StockDAORepository implements StockDAO {
 			s.setP_id(rs.getInt(1));
 			s.setS_quantity(rs.getInt(2));
 		}
+		con.close();
 		return s;
 	}
 }

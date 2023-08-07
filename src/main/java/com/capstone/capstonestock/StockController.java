@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/stock")
-@CrossOrigin(origins = {"https://domainofchain.s3.us-east-2.amazonaws.com","http://localhost:4200/"})
+@CrossOrigin(origins = {"https://domainofchain.s3.us-east-2.amazonaws.com","http://localhost:4200/", "http://localhost:4200/","https://capstone-angular-jj.s3.us-east-2.amazonaws.com"})
 public class StockController {
 	@Autowired
 	StockDAO repo;
@@ -40,17 +40,17 @@ public class StockController {
 			
 			
 			if(repo.postStock(stock))
-				return "Stock Registered";
+				return "\"Stock Registered\"";
 			else
-				return "Stock Not Registered";
+				return "\"Stock Not Registered\"";
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "Error in adding stock. Check permissions.";
+			return "\"Error in adding stock. Check permissions.\"";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "Error in adding stock. Check if making stock negative.";
+			return "\"Error in adding stock. Check if making stock negative.\"";
 		}
 	}
 	
@@ -72,17 +72,17 @@ public class StockController {
 			
 			
 			if(repo.addStock(stock.getP_id(), stock.getS_quantity()))
-				return "Stock Added";
+				return "\"Stock Added\"";
 			else
 				return "Stock Not Added";
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "Error in adding stock. Check permissions.";
+			return "\"Error in adding stock. Check permissions.\"";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "Error in adding stock. Check if making stock negative.";
+			return "\"Error in adding stock. Check if making stock negative.\"";
 		}
 	}
 	
@@ -103,17 +103,17 @@ public class StockController {
 			
 			
 			if(repo.subStock(stock.getP_id(), stock.getS_quantity()))
-				return "Stock Removed";
+				return "\"Stock Removed\"";
 			else
-				return "Stock Not Removed";
+				return "\"Stock Not Removed\"";
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return  "Error in adding stock. Check permissions.";
+			return  "\"Error in adding stock. Check permissions.\"";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "Error in adding stock. Check if making stock negative.";
+			return "\"Error in adding stock. Check if making stock negative.\"";
 		}
 	}
 	
